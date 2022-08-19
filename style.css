@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700&family=Righteous&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    box-sizing: border-box;
+  }
+
+body{
+    background-color: 
+    rgba(238, 249, 191, 1);
+}
+
+h1{
+    font-family: "Roboto Slab", serif;
+    font-size: 56px;
+    line-height: 66px;
+    color: #75B79E;
+    /*display: flex;
+    align-items: center;
+    justify-content: center;*/
+    margin-top: 40px;
+    margin-bottom: 47px;
+    text-align: center;
+    background-color: 
+    rgba(238, 249, 191, 1);
+    z-index: 2;
+}
+
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 122px;
+    padding-right: 122px;
+}
+
+.card{
+    width: 117px;
+    height: 146px;
+    margin-top: 5px;
+    margin-bottom: 34px;
+    border-radius: 5px;
+    position: relative;
+    transition: all 0.5s;
+    transform-style: preserve-3d;
+}
+
+.card:hover{
+    transform: rotateY(180deg);
+}
+
+.face{
+    background-image: linear-gradient(to bottom,  rgba(153, 206, 168, 1), rgba(167, 233, 175, 1));
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    border: 1px solid rgb(127, 172, 140);
+    border-radius: 5px;
+  
+}
+
+.front{
+    backface-visibility: hidden;
+    z-index: 1;
+}
+
+.parrot {
+    width: 100px;
+    height: 100px;
+}
+
+.Pback{
+    width: 70px;
+    height: 70px;
+    margin-left: 24px;
+}
+
