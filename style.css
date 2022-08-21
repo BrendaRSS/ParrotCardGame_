@@ -52,7 +52,6 @@ ul{
 
 .front{
     backface-visibility: hidden;
-    z-index: 1;
 }
 
 .backInativa{
@@ -60,9 +59,12 @@ ul{
     height: 50%;
 }
 
+.none{
+    display: none;
+}
+
 .back{
     transform: rotateY(180deg);
-    background-image: url(./bobrossparrot.gif);
 
 }
 

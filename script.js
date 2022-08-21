@@ -11,32 +11,27 @@ const gifsparrot=[
     "metalparrot.gif", 
     "revertitparrot.gif", 
     "tripletsparrot.gif", 
-    "unicornparrot.gif",
-    "bobrossparrot.gif", 
-    "explodyparrot.gif", 
-    "fiestaparrot.gif", 
-    "metalparrot.gif", 
-    "revertitparrot.gif", 
-    "tripletsparrot.gif", 
-    "unicornparrot.gif" ];
+    "unicornparrot.gif"];
     console.log(gifsparrot);
 
 function addCards(){
-    let listaDeCartas=[];
-    for(i=0; i<quantidadeDeCartas;i++){
-     listaDeCartas.push(
-    `<li>
-        <div class="card face card${i}">
-            <img src="front.png" class="front parrot">
-            <div class="backInativa"><img src=${gifsparrot[i]}> </div>   
-        </div>
-    </li>`)
+  let listaDeCartas=[];
+  for(i=0; i<2;i++){
+    for(j=0; j<quantidadeDeCartas/2;j++){
+      listaDeCartas.push(
+      `<li>
+          <div class="card face" onclick="virarCartas(this)">
+              <div class="backInativa none"><img src=${gifsparrot[j]}></div>
+              <img src="front.png" class="front parrot">   
+          </div>
+      </li>`)
     }
+  }
 
-    listaDeCartas.sort(comparador); 
-    function comparador() { 
-	    return Math.random() - 0.5; 
-    }
+  listaDeCartas.sort(comparador); 
+  function comparador() { 
+	   return Math.random() - 0.5; 
+  }
    
     let ulCartas= document.querySelector("ul");
     for(i=0;i<quantidadeDeCartas;i++){
@@ -45,6 +40,13 @@ function addCards(){
    
 }
 
-//function virarCartas(cardEscolhido){}
+function virarCartas(cardEscolhido){
+    cardEscolhido.classList.add("back");
+  let gifAparece= cardEscolhido.querySelector('.backInativa');
+  gifAparece.classList.remove('none');
+  let parrotSome= cardEscolhido.querySelector('.front');
+  parrotSome.classList.add('none');
+}
+
    addCards();
       
