@@ -28,7 +28,7 @@ h1{
 ul{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding-left: 122px;
     padding-right: 122px;
@@ -40,6 +40,7 @@ ul{
     height: 146px;
     margin-top: 5px;
     margin-bottom: 34px;
+    margin-left: 35px;
     display: flex;
     align-items: center;
     justify-content: center;

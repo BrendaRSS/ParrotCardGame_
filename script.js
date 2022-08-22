@@ -1,5 +1,6 @@
 
-let quantidadeDeCartas = Number(prompt("Escolha a quantidade de cartas de 4 a 14:"))
+let nomedoJogador= prompt("Olá! Qual seu nome?");
+let quantidadeDeCartas = Number(prompt("Escolha a quantidade de cartas de 4 a 14:"));
   while (quantidadeDeCartas % 2 != 0 || quantidadeDeCartas > 14 || quantidadeDeCartas < 4) {
     quantidadeDeCartas = Number(prompt("Escolha a quantidade de cartas de 4 a 14:")); 
   }
@@ -39,6 +40,8 @@ function addCards(){
     }
    
 }
+
+let contadorDeJogadas=0; //Conta quantas vezes o jogador clicou em uma carta
 let primeiraCarta=[];
 let segundaCarta=[];
 let ParDeCartasEscolhidas=[];
@@ -52,6 +55,7 @@ function virarCartas(cardEscolhido){
     parrotSome.classList.add('none');
     primeiraCarta=cardEscolhido;
     ParDeCartasEscolhidas.push(cardEscolhido.innerHTML);
+    contadorDeJogadas=contadorDeJogadas+1;
     }
   } else if(ParDeCartasEscolhidas.length==1){
     if(cardEscolhido.classList.contains('back')==false){
@@ -62,13 +66,15 @@ function virarCartas(cardEscolhido){
     parrotSome.classList.add('none');
     segundaCarta=cardEscolhido;
     ParDeCartasEscolhidas.push(cardEscolhido.innerHTML);
+    contadorDeJogadas=contadorDeJogadas+1;
     setTimeout(comprarCartasViradas, 1000);
+    setTimeout(totaldeJogadas, 1000);
     }
   }
 
 
   
-  console.log(ParDeCartasEscolhidas);
+  console.log(contadorDeJogadas);
 }
 
 function comprarCartasViradas(){
@@ -87,6 +93,12 @@ function comprarCartasViradas(){
   ParDeCartasEscolhidas=[];
 }
 
+//função que executa o prompt final após todas os pares de cartas estarem virados
+function totaldeJogadas(){
+  let totalDeCartasClicadas= document.querySelectorAll(".back") //pega todos os elemento virados e verifica se é igual a qtd de cartas 
+  if (totalDeCartasClicadas.length==quantidadeDeCartas){
+    alert(`Parabéns, ${nomedoJogador}! Você ganhou o jogo em ${contadorDeJogadas} jogadas`);
+  }
+}
 
 addCards();
-      
