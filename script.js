@@ -12,7 +12,7 @@ const gifsparrot=[
     "revertitparrot.gif", 
     "tripletsparrot.gif", 
     "unicornparrot.gif"];
-    console.log(gifsparrot);
+    //console.log(gifsparrot);
 
 function addCards(){
   let listaDeCartas=[];
@@ -39,14 +39,54 @@ function addCards(){
     }
    
 }
-
+let primeiraCarta=[];
+let segundaCarta=[];
+let ParDeCartasEscolhidas=[];
 function virarCartas(cardEscolhido){
+  if(ParDeCartasEscolhidas==0){
+    if(cardEscolhido.classList.contains('back')==false){
     cardEscolhido.classList.add("back");
-  let gifAparece= cardEscolhido.querySelector('.backInativa');
-  gifAparece.classList.remove('none');
-  let parrotSome= cardEscolhido.querySelector('.front');
-  parrotSome.classList.add('none');
+    let gifAparece= cardEscolhido.querySelector('.backInativa');
+    gifAparece.classList.remove('none');
+    let parrotSome= cardEscolhido.querySelector('.front');
+    parrotSome.classList.add('none');
+    primeiraCarta=cardEscolhido;
+    ParDeCartasEscolhidas.push(cardEscolhido.innerHTML);
+    }
+  } else if(ParDeCartasEscolhidas.length==1){
+    if(cardEscolhido.classList.contains('back')==false){
+    cardEscolhido.classList.add("back");
+    let gifAparece= cardEscolhido.querySelector('.backInativa');
+    gifAparece.classList.remove('none');
+    let parrotSome= cardEscolhido.querySelector('.front');
+    parrotSome.classList.add('none');
+    segundaCarta=cardEscolhido;
+    ParDeCartasEscolhidas.push(cardEscolhido.innerHTML);
+    setTimeout(comprarCartasViradas, 1000);
+    }
+  }
+
+
+  
+  console.log(ParDeCartasEscolhidas);
 }
 
-   addCards();
+function comprarCartasViradas(){
+  if(ParDeCartasEscolhidas[0] != ParDeCartasEscolhidas[1]){
+    primeiraCarta.classList.remove('back');
+    let gifSome1= primeiraCarta.querySelector('.backInativa');
+    gifSome1.classList.add('none');
+    let parrotAparece1= primeiraCarta.querySelector('.front');
+    parrotAparece1.classList.remove('none');
+    segundaCarta.classList.remove('back');
+    let gifSome2= segundaCarta.querySelector('.backInativa');
+    gifSome2.classList.add('none');
+    let parrotAparece2= segundaCarta.querySelector('.front');
+    parrotAparece2.classList.remove('none');
+  } 
+  ParDeCartasEscolhidas=[];
+}
+
+
+addCards();
       
